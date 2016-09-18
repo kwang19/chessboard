@@ -24,7 +24,7 @@ class ChessboardGenerator < Rails::Generators::Base
   end
 
   def generate_chessboard_controller
-    copy_file 'chessboard_controller.rb', "app/controllers/chessboard_controller.rb" if !options.skip_controller
+    copy_file 'chessboard_controller.rb', 'app/controllers/chessboard_controller.rb' if !options.skip_controller
   end
 
   def generate_chessboard_view
@@ -32,7 +32,7 @@ class ChessboardGenerator < Rails::Generators::Base
       chessboard_view_path = 'app/views/chessboard/chessboard.html.erb'
       case options.chessboard_type
       when 'empty_board'
-        copy_file 'chessboard_empty_board.html.erb', 
+        copy_file 'chessboard_empty_board.html.erb', chessboard_view_path
       when 'only_legal_moves'
         copy_file 'chessboard_only_legal_moves.html.erb', chessboard_view_path
       when 'play_random_computer'
@@ -44,7 +44,8 @@ class ChessboardGenerator < Rails::Generators::Base
       when 'piece_highlighting_1'
         copy_file 'chessboard_piece_highlighting_1.html.erb', chessboard_view_path
       when 'piece_highlighting_2'
-        copy_file 'chessboard_piece_highlighting_2.html.erb', chessboard_view_path  
+        copy_file 'chessboard_piece_highlighting_2.html.erb', chessboard_view_path
+      end  
     end
   end
 
