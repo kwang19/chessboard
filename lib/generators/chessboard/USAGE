@@ -1,0 +1,13 @@
+Description:
+    Generates controller, view, javascripts and stylesheets for a chessboard.
+
+Example:
+    rails generate chessboard
+
+    This will create:
+        vendor/assets/javascript/chess.min.js
+        vendor/assets/javascript/chessboard-0.3.0.min.js
+        vendor/assets/stylesheets/chessboard-0.3.0.min.css
+        app/controllers/chessboard_controller.rb
+        app/assets/images/chesspieces/<Images>.png
+        app/views/chessboard/chessboard.html.erb
