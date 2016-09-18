@@ -29,13 +29,22 @@ class ChessboardGenerator < Rails::Generators::Base
 
   def generate_chessboard_view
     if !options.skip_view?
-      copy_file 'chessboard_empty_board.html.erb', "app/views/chessboard/chessboard.html.erb" if options.chessboard_type == 'empty_board'
-      copy_file 'chessboard_only_legal_moves.html.erb', "app/views/chessboard/chessboard.html.erb" if options.chessboard_type == 'only_legal_moves'
-      copy_file 'chessboard_play_random_computer.html.erb', "app/views/chessboard/chessboard.html.erb" if options.chessboard_type == 'play_random_computer'
-      copy_file 'chessboard_random_vs_random.html.erb', "app/views/chessboard/chessboard.html.erb" if options.chessboard_type == 'random_vs_random'
-      copy_file 'chessboard_highlight_legal_moves.html.erb', "app/views/chessboard/chessboard.html.erb" if options.chessboard_type == 'highlight_legal_moves'
-      copy_file 'chessboard_piece_highlighting_1.html.erb', "app/views/chessboard/chessboard.html.erb" if options.chessboard_type == 'piece_highlighting_1'
-      copy_file 'chessboard_piece_highlighting_2.html.erb', "app/views/chessboard/chessboard.html.erb" if options.chessboard_type == 'piece_highlighting_2'   
+      chessboard_view_path = 'app/views/chessboard/chessboard.html.erb'
+      case options.chessboard_type
+      when 'empty_board'
+        copy_file 'chessboard_empty_board.html.erb', 
+      when 'only_legal_moves'
+        copy_file 'chessboard_only_legal_moves.html.erb', chessboard_view_path
+      when 'play_random_computer'
+        copy_file 'chessboard_play_random_computer.html.erb', chessboard_view_path
+      when 'random_vs_random'
+        copy_file 'chessboard_random_vs_random.html.erb', chessboard_view_path
+      when 'highlight_legal_moves'
+        copy_file 'chessboard_highlight_legal_moves.html.erb', chessboard_view_path
+      when 'piece_highlighting_1'
+        copy_file 'chessboard_piece_highlighting_1.html.erb', chessboard_view_path
+      when 'piece_highlighting_2'
+        copy_file 'chessboard_piece_highlighting_2.html.erb', chessboard_view_path  
     end
   end
 
