@@ -22,9 +22,53 @@ Or install it yourself as:
 
 ### Basic Usage
 
-1. After installation run `rails generate chessboard`
-2. Start the rails server `rails server`
+1. After installation run `rails generate chessboard` or `rails g chessboard`
+2. Start the rails server `rails server` or `rails s`
 3. Open your favourite browser and visit [http://localhost:3000/chessboard](http://localhost:3000/chessboard)
+
+### Print help message
+
+Run `rails g chessboard --help` to print following:
+
+```
+Usage:
+  rails generate chessboard [CHESSBOARD_NAME] [options]
+
+Options:
+  [--skip-controller], [--no-skip-controller]  # Skip including chessboard controller.
+  [--skip-route], [--no-skip-route]            # Skip adding route for chessboard in your config/route.rb
+  [--skip-view], [--no-skip-view]              # Skip including chessboard view (.html.erb file).
+  [--chessboard-type=CHESSBOARD_TYPE]          # Specify what type of chessboard you want in your view. 
+                                                  Available options:
+                                                    only_legal_moves,
+                                                    play_random_computer, 
+                                                    empty_board, 
+                                                    random_vs_random, 
+                                                    highlight_legal_moves, 
+                                                    piece_highlighting_1, 
+                                                    piece_highlighting_2
+                                               # Default: only_legal_moves
+
+Runtime options:
+  -f, [--force]                    # Overwrite files that already exist
+  -p, [--pretend], [--no-pretend]  # Run but do not make any changes
+  -q, [--quiet], [--no-quiet]      # Suppress status output
+  -s, [--skip], [--no-skip]        # Skip files that already exist
+
+Description:
+    Generates controller, view, javascripts and stylesheets for a chessboard.
+
+Example:
+    rails generate chessboard
+
+    This will create:
+        vendor/assets/javascript/chess.min.js
+        vendor/assets/javascript/chessboard-0.3.0.min.js
+        vendor/assets/stylesheets/chessboard-0.3.0.min.css
+        app/controllers/chessboard_controller.rb
+        app/assets/images/chesspieces/<Images>.png
+        app/views/chessboard/chessboard.html.erb
+```
 
 ## Development
 
