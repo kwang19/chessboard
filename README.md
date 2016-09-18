@@ -1,6 +1,6 @@
 # Chessboard
 
-A ruby gem to generate necessary assets (javascripts, stylesheets and images), controller and view in order to easily add varieties of chessboards in your Ruby on Rails 5 applications. Thanks to chess libraries like [chessboard.js](https://github.com/oakmac/chessboardjs/) and [chess.js] (https://github.com/jhlywa/chess.js) and awesome power of Ruby on Rails, you can add a nice chessboard in your rails 5 application with literally 3 commands.
+A ruby gem to generate necessary assets (javascripts, stylesheets and images), controller and view in order to easily include varieties of chessboards in your Ruby on Rails 5 applications. Thanks to chess libraries like [chessboard.js](https://github.com/oakmac/chessboardjs/) and [chess.js](https://github.com/jhlywa/chess.js) and the awesome power of Ruby on Rails, you can add a nice chessboard in your rails 5 application with literally 3 commands.
 
 ## Installation
 
@@ -14,10 +14,6 @@ And then execute:
 
     $ bundle install
 
-Or install it yourself as:
-
-    $ gem install chessboard
-
 ## Usage
 
 ### Basic Usage
@@ -25,6 +21,23 @@ Or install it yourself as:
 1. After installation run `rails generate chessboard` or `rails g chessboard`
 2. Start the rails server `rails server` or `rails s`
 3. Open your favourite browser and visit [http://localhost:3000/chessboard](http://localhost:3000/chessboard)
+
+Boom! You have a chessboard in your Rails app. Now play chess with yourself.
+![chessboard](https://cloud.githubusercontent.com/assets/12648587/18617936/ef82b3fc-7da9-11e6-8715-791673b37842.png)
+
+### Spcify `chessboard-type`
+
+You can also specify the `chessboard-type` to generate different chessboards. So far the available chessboard types are following:
+
+1. `only_legal_moves`
+2. `play_random_computer`
+3. `empty_board`
+4. `random_vs_random`
+5. `highlight_legal_moves`
+6. `piece_highlighting_1`
+7. `piece_highlighting_2`
+
+For example, run `rails g chessboard --chessboard-type=play_random_computer` to play with computer that will only make stupid random moves.
 
 ### Print help message
 
@@ -78,7 +91,7 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/chessboard. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/dhrubomoy/chessboard. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
