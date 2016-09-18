@@ -1,4 +1,10 @@
 # Chessboard
+![](http://ruby-gem-downloads-badge.herokuapp.com/chessboard?style=social&link=https://rubygems.org/gems/chessboard&type=total)
+
+[![Gem Version](https://badge.fury.io/rb/chessboard.svg)](https://badge.fury.io/rb/chessboard)
+[![Build Status](https://travis-ci.org/dhrubomoy/chessboard.svg?branch=master)](https://travis-ci.org/dhrubomoy/chessboard)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/dhrubomoy/chessboard/master/LICENSE.txt)
+
 
 A ruby gem to generate necessary assets (javascripts, stylesheets and images), controller and view in order to easily include varieties of chessboards in your Ruby on Rails 5 applications. Thanks to chess libraries like [chessboard.js](https://github.com/oakmac/chessboardjs/) and [chess.js](https://github.com/jhlywa/chess.js) and the awesome power of Ruby on Rails, you can add a nice chessboard in your rails 5 application with literally 3 commands.
 
