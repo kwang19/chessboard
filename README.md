@@ -8,6 +8,17 @@
 
 A ruby gem to generate necessary assets (javascripts, stylesheets and images), controller and view in order to easily include varieties of chessboards in your Ruby on Rails 5 applications. Thanks to chess libraries like [chessboard.js](https://github.com/oakmac/chessboardjs/) and [chess.js](https://github.com/jhlywa/chess.js) and the awesome power of Ruby on Rails, you can add a nice chessboard in your rails 5 application with literally 3 commands.
 
+## Table of Contents
+
+* [Installation](#installation)
+* [Usage](#usage)
+  * [Basic Usage](#basic-usage)
+  * [Specify `chessboard-type`](#specify-chessboard-type)
+  * [Print Help](#print-help)
+* [Development](#development)
+* [Contributing](#contributing)
+* [License](#license)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -31,7 +42,7 @@ And then execute:
 Boom! You have a chessboard in your Rails app. Now play chess with yourself.
 ![chessboard](https://cloud.githubusercontent.com/assets/12648587/18617936/ef82b3fc-7da9-11e6-8715-791673b37842.png)
 
-### Spcify `chessboard-type`
+### Specify `chessboard-type`
 
 You can also specify the `chessboard-type` to generate different chessboards. So far the available chessboard types are following:
 
@@ -45,7 +56,7 @@ You can also specify the `chessboard-type` to generate different chessboards. So
 
 For example, run `rails g chessboard --chessboard-type=play_random_computer` to play with computer that will only make stupid random moves.
 
-### Print help message
+### Print Help
 
 Run `rails g chessboard --help` to print following:
 
