@@ -24,12 +24,15 @@ class ChessboardGenerator < Rails::Generators::Base
   end
 
   def generate_chessboard_controller
-    copy_file 'chessboard_controller.rb', 'app/controllers/chessboard_controller.rb' if !options.skip_controller
+    chessboard_controller_path = "app/controllers/#{chessboard_name.underscore}_controller.rb"
+    copy_file 'chessboard_controller.rb', chessboard_controller_path if !options.skip_controller
+    chessboard_controller_content = "class #{chessboard_name.camelize}Controller < ApplicationController\n\tdef #{chessboard_name.underscore}\n\tend\nend\n"
+    inject_into_file chessboard_controller_path, chessboard_controller_content, after: "\n"
   end
 
   def generate_chessboard_view
     if !options.skip_view?
-      chessboard_view_path = 'app/views/chessboard/chessboard.html.erb'
+      chessboard_view_path = "app/views/#{chessboard_name.underscore}/#{chessboard_name.underscore}.html.erb"
       case options.chessboard_type
       when 'empty_board'
         copy_file 'chessboard_empty_board.html.erb', chessboard_view_path
@@ -50,6 +53,6 @@ class ChessboardGenerator < Rails::Generators::Base
   end
 
   def inject_into_routes
-    inject_into_file 'config/routes.rb', "get '/chessboard', to: 'chessboard#chessboard'\n", after: "Rails.application.routes.draw do\n" if !options.skip_routes
+    inject_into_file 'config/routes.rb', "get '/#{chessboard_name.underscore}', to: '#{chessboard_name.underscore}##{chessboard_name.underscore}'\n", after: "Rails.application.routes.draw do\n" if !options.skip_routes
   end
 end
