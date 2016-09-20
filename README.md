@@ -6,13 +6,14 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/dhrubomoy/chessboard/master/LICENSE.txt)
 
 
-A ruby gem to generate necessary assets (javascripts, stylesheets and images), controller and view in order to easily include varieties of chessboards in your Ruby on Rails 5 applications. Thanks to chess libraries like [chessboard.js](https://github.com/oakmac/chessboardjs/) and [chess.js](https://github.com/jhlywa/chess.js) and the awesome power of Ruby on Rails, you can add a nice chessboard in your rails 5 application with literally 3 commands.
+A ruby gem to generate necessary assets (javascripts, stylesheets and images), controller and view in order to easily include varieties of chessboards in your Ruby on Rails 5 applications. Thanks to chess libraries like [chessboard.js](https://github.com/oakmac/chessboardjs/) and [chess.js](https://github.com/jhlywa/chess.js) and the awesome power of Ruby on Rails, you can add a nice chessboard in your rails 5 application with a single command.
 
 ## Table of Contents
 
 * [Installation](#installation)
 * [Usage](#usage)
   * [Basic Usage](#basic-usage)
+  * [Artificial Intelligence with `include_ai`](#artificial-intelligence-with-include_ai)
   * [Specify `chessboard-type`](#specify-chessboard-type)
   * [Print Help](#print-help)
 * [Development](#development)
@@ -42,12 +43,17 @@ And then execute:
 Boom! You have a chessboard in your Rails app. Now play chess with yourself.
 ![chessboard](https://cloud.githubusercontent.com/assets/12648587/18617936/ef82b3fc-7da9-11e6-8715-791673b37842.png)
 
+### Artificial Intelligence with `include_ai`
+
+Run `rails g chessboard --chessboard-type=include_ai` to have some AI. Otherwise playing with a computer that only makes random moves is no fun and you will always win. So use the `include_ai` option and it will give you some tough fight.
+
 ### Specify `chessboard-type`
 
 You can also specify the `chessboard-type` to generate different chessboards. So far the available chessboard types are following:
 
 1. `only_legal_moves`
 2. `play_random_computer`
+3. `include_ai`
 3. `empty_board`
 4. `random_vs_random`
 5. `highlight_legal_moves`
@@ -70,12 +76,13 @@ Options:
   [--skip-view], [--no-skip-view]              # Skip including chessboard view (.html.erb file).
   [--chessboard-type=CHESSBOARD_TYPE]          # Specify what type of chessboard you want in your view. 
                                                   Available options:
-                                                    only_legal_moves,
-                                                    play_random_computer, 
-                                                    empty_board, 
-                                                    random_vs_random, 
-                                                    highlight_legal_moves, 
-                                                    piece_highlighting_1, 
+                                                    include_ai
+                                                    only_legal_moves
+                                                    play_random_computer
+                                                    empty_board
+                                                    random_vs_random
+                                                    highlight_legal_moves
+                                                    piece_highlighting_1
                                                     piece_highlighting_2
                                                # Default: only_legal_moves
 
