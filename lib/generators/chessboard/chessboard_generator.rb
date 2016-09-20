@@ -6,18 +6,24 @@ class ChessboardGenerator < Rails::Generators::Base
   class_option :skip_view, type: :boolean, defalt: false, desc: 'Skip including chessboard view (.html.erb file).'
   class_option :chessboard_type, type: :string, default: 'only_legal_moves', desc: "Specify what type of chessboard you want in your view. 
                                                   Available options:
-                                                    only_legal_moves,
-                                                    play_random_computer, 
-                                                    empty_board, 
-                                                    random_vs_random, 
-                                                    highlight_legal_moves, 
-                                                    piece_highlighting_1, 
+                                                    include_ai
+                                                    only_legal_moves
+                                                    play_random_computer
+                                                    empty_board
+                                                    random_vs_random
+                                                    highlight_legal_moves
+                                                    piece_highlighting_1
                                                     piece_highlighting_2"
 
   def generate_chessboard_assets
     copy_file 'chess.min.js', 'vendor/assets/javascripts/chess.min.js'
     copy_file 'chessboard-0.3.0.min.js', 'vendor/assets/javascripts/chessboard-0.3.0.min.js'
     copy_file 'chessboard-0.3.0.min.css', 'vendor/assets/stylesheets/chessboard-0.3.0.min.css'
+    if options.chessboard_type == 'include_ai'
+      copy_file 'cinnamon.js', 'vendor/assets/javascripts/cinnamon.js'
+      copy_file 'cinnamon_engine.js', 'vendor/assets/javascripts/cinnamon_engine.js'
+      inject_into_file 'app/assets/javascripts/application.js', "//= require cinnamon_engine\n//= require cinnamon\n", after: "//= require jquery_ujs\n"
+    end
     inject_into_file 'app/assets/stylesheets/application.css', " *= require chessboard-0.3.0.min\n", after: " *= require_self\n"
     inject_into_file 'app/assets/javascripts/application.js', "//= require chessboard-0.3.0.min\n//= require chess.min\n", after: "//= require jquery_ujs\n"
     directory 'chesspieces', "app/assets/images/chesspieces"
@@ -38,6 +44,8 @@ class ChessboardGenerator < Rails::Generators::Base
         copy_file 'chessboard_empty_board.html.erb', chessboard_view_path
       when 'only_legal_moves'
         copy_file 'chessboard_only_legal_moves.html.erb', chessboard_view_path
+      when 'include_ai'
+        copy_file 'chessboard_include_ai.html.erb', chessboard_view_path
       when 'play_random_computer'
         copy_file 'chessboard_play_random_computer.html.erb', chessboard_view_path
       when 'random_vs_random'
